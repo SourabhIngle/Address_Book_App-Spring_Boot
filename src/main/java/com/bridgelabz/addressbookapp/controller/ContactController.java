@@ -21,6 +21,7 @@ public class ContactController {
     private ContactServiceInterface contactServiceInterface;
 
 
+// Checking Email address on database exists or not so that not store duplicate email id .
     @PostMapping("/add")
     public ResponseEntity<Object> add(@RequestBody ContactDTO contactDTO){
         String email = contactDTO.email;
@@ -31,17 +32,23 @@ public class ContactController {
         return new ResponseEntity<>(responseDTO,HttpStatus.OK);
     }
 
+
+// Get All Person data from database.
     @GetMapping("/getall")
     public List<AddressBookApp> getAll() {
         return contactServiceInterface.getAll();
     }
 
+
+// Get person data using person unique Id.
     @GetMapping("/getbyid/{id}")
     public ResponseEntity<ResponseDTO> getById(@PathVariable Integer id) {
         ResponseDTO responseDTO = new ResponseDTO("Retrieve Data Successfully", contactServiceInterface.getById(id));
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
+
+// Update person data by using id (Edit existing person data ).
     @PutMapping("/updatebyid/{id}")
     public ResponseEntity<ResponseDTO> updateById(@PathVariable Integer id, @Valid @RequestBody ContactDTO contactDTO) {
         AddressBookApp addressBookApp = contactServiceInterface.updateById(id, contactDTO);
@@ -49,6 +56,8 @@ public class ContactController {
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
+
+// Delete person data from Address Book by using id .
     @DeleteMapping("/deletebyid/{id}")
     public ResponseEntity<String> deleteById(@PathVariable Integer id) {
         contactServiceInterface.deleteById(id);
