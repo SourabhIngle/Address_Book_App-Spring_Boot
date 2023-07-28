@@ -28,7 +28,7 @@ public class ContactController {
         if (!contactServiceInterface.uniqueEmailId(email)){
             return ResponseEntity.badRequest().body("Email already exists");
         }
-        ResponseDTO responseDTO = new ResponseDTO("dsfa",contactServiceInterface.add(contactDTO));
+        ResponseDTO responseDTO = new ResponseDTO("Data add successfully",contactServiceInterface.add(contactDTO));
         return new ResponseEntity<>(responseDTO,HttpStatus.OK);
     }
 
