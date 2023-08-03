@@ -1,21 +1,3 @@
-2023-07-28T00:03:25.916+05:30  WARN 6428 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-07-28T00:03:26.173+05:30  WARN 6428 --- [restartedMain] c.b.a.AddressBookAppApplication          : WARNING
-2023-07-28T00:03:26.173+05:30 ERROR 6428 --- [restartedMain] c.b.a.AddressBookAppApplication          : ERROR
-2023-07-28T00:03:31.798+05:30  INFO 6428 --- [http-nio-8888-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-07-28T00:03:31.799+05:30  INFO 6428 --- [http-nio-8888-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-07-28T00:09:39.162+05:30  WARN 15168 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-07-28T00:09:58.200+05:30  WARN 15168 --- [restartedMain] c.b.a.AddressBookAppApplication          : WARNING
-2023-07-28T00:09:58.200+05:30 ERROR 15168 --- [restartedMain] c.b.a.AddressBookAppApplication          : ERROR
-2023-07-28T00:10:04.741+05:30  WARN 11504 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-07-28T00:10:04.991+05:30  WARN 11504 --- [restartedMain] c.b.a.AddressBookAppApplication          : WARNING
-2023-07-28T00:10:04.991+05:30 ERROR 11504 --- [restartedMain] c.b.a.AddressBookAppApplication          : ERROR
-2023-07-28T00:10:10.378+05:30  INFO 11504 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-07-28T00:10:10.379+05:30  INFO 11504 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-07-28T00:12:41.141+05:30  WARN 13992 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-07-28T00:13:03.239+05:30  WARN 13992 --- [restartedMain] c.b.a.AddressBookAppApplication          : WARNING
-2023-07-28T00:13:03.244+05:30 ERROR 13992 --- [restartedMain] c.b.a.AddressBookAppApplication          : ERROR
-2023-07-28T00:13:13.607+05:30  INFO 13992 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-07-28T00:13:13.800+05:30  INFO 13992 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 186 ms
-2023-07-28T00:14:23.538+05:30  WARN 13992 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m27s950ms656µs600ns).
-2023-07-28T00:15:23.689+05:30  WARN 13992 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m151ms590µs600ns).
-2023-07-28T00:16:21.697+05:30  WARN 13992 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=58s7ms827µs800ns).
+2023-08-02T12:42:33.305+05:30  WARN 6504 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-02T12:42:33.588+05:30  WARN 6504 --- [restartedMain] c.b.a.AddressBookAppApplication          : WARNING
+2023-08-02T12:42:33.589+05:30 ERROR 6504 --- [restartedMain] c.b.a.AddressBookAppApplication          : ERROR

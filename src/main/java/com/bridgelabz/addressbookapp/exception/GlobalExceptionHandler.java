@@ -30,3 +30,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(responseDTO,HttpStatus.BAD_REQUEST);
     }
 }
+
+
+
