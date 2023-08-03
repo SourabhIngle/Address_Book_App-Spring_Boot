@@ -49,7 +49,7 @@ public class ContactController {
 
 
     // Update person data by using id (Edit existing person data ).
-    @PutMapping("/updatebyid")
+    @PutMapping("/updatebytoken")
     public ResponseEntity<ResponseDTO> updateById(@RequestHeader String token, @Valid @RequestBody ContactDTO contactDTO) {
         AddressBookApp addressBookApp = contactServiceInterface.updateById(token, contactDTO);
         ResponseDTO responseDTO = new ResponseDTO("Data Update Successfully", addressBookApp);
@@ -58,7 +58,7 @@ public class ContactController {
 
 
     // Delete person data from Address Book by using id .
-    @DeleteMapping("/deletebyid")
+    @DeleteMapping("/deletebytoken")
     public ResponseEntity<String> deleteById(@RequestHeader String token) {
         contactServiceInterface.deleteById(token);
         return ResponseEntity.ok("Id Successfully Deleted");
