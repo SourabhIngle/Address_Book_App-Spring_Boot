@@ -14,19 +14,19 @@ public class AddressBookApp{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "Person_Id")
+    @Column(name = "person_Id")
     private String name;
-    @Column(name = "Person_PhoneNumber")
+    @Column(name = "person_phoneNumber")
     private String phoneNumber;
-    @Column(name = "Person_Email")
+    @Column(name = "person_Email")
     private String email;
-    @Column(name = "Person_Address")
+    @Column(name = "person_Address")
     private String address;
-    @Column(name = "Person_State")
+    @Column(name = "person_State")
     private String state;
-    @Column(name = "Person_City")
+    @Column(name = "person_City")
     private String city;
-    @Column(name = "Person_Pin_Code")
+    @Column(name = "person_pin_Code")
     private String pin;
 
     public AddressBookApp(ContactDTO contactDTO) {
@@ -42,5 +42,4 @@ public class AddressBookApp{
         this.city = contactDTO.city;
         this.pin = contactDTO.pin;
     }
-
 }

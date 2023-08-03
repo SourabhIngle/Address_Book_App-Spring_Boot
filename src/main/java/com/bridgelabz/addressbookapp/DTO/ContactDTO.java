@@ -27,5 +27,4 @@ public class ContactDTO {
     @Pattern(regexp = "^[4][0-9]{2}([\\s])?[0-9]{3}$", message = "Start from 4 and only 6 number including 4")
     @NotEmpty
     public String pin;
-
 }

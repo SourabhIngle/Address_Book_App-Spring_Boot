@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ContactRepository extends JpaRepository<AddressBookApp,Integer> {
-    //Spring Data JPA will automatically generate the query for you based on the method name.
+    //Spring Data JPA will automatically generate the query for us, based on the method name.
     AddressBookApp findByEmail(String email);
 }

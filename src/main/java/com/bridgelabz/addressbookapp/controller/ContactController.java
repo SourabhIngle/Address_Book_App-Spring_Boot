@@ -4,6 +4,7 @@ import com.bridgelabz.addressbookapp.AddressBookAppApplication;
 import com.bridgelabz.addressbookapp.DTO.ContactDTO;
 import com.bridgelabz.addressbookapp.DTO.ResponseDTO;
 import com.bridgelabz.addressbookapp.model.AddressBookApp;
+import com.bridgelabz.addressbookapp.repository.ContactRepository;
 import com.bridgelabz.addressbookapp.service.ContactServiceInterface;
 import jakarta.validation.Valid;
 import lombok.Data;
@@ -21,46 +22,45 @@ public class ContactController {
     private ContactServiceInterface contactServiceInterface;
 
 
-// Checking Email address on database exists or not so that not store duplicate email id .
     @PostMapping("/add")
-    public ResponseEntity<Object> add(@RequestBody ContactDTO contactDTO){
+    public ResponseEntity<ResponseDTO> add(@RequestBody ContactDTO contactDTO) {
         String email = contactDTO.email;
-        if (!contactServiceInterface.uniqueEmailId(email)){
-            return ResponseEntity.badRequest().body("Email already exists");
+        if (contactServiceInterface.uniqueEmailId(email)) {
+            ResponseDTO responseDTO = new ResponseDTO("Data add successfully", contactServiceInterface.add(contactDTO));
+            return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
         }
-        ResponseDTO responseDTO = new ResponseDTO("Data add successfully",contactServiceInterface.add(contactDTO));
-        return new ResponseEntity<>(responseDTO,HttpStatus.OK);
+        ResponseDTO responseDTO = new ResponseDTO("Email Id already exists in Database.Use Unique Email Id", contactDTO);
+        return  new ResponseEntity<>(responseDTO,HttpStatus.BAD_REQUEST);
     }
 
-
-// Get All Person data from database.
+    // Get All Person data from database.
     @GetMapping("/getall")
     public List<AddressBookApp> getAll() {
         return contactServiceInterface.getAll();
     }
 
 
-// Get person data using person unique Id.
-    @GetMapping("/getbyid/{id}")
-    public ResponseEntity<ResponseDTO> getById(@PathVariable Integer id) {
-        ResponseDTO responseDTO = new ResponseDTO("Retrieve Data Successfully", contactServiceInterface.getById(id));
-        return new ResponseEntity<>(responseDTO, HttpStatus.OK);
+    // Get person data using person unique Id.
+    @GetMapping("/getByToken")
+    public ResponseDTO getById(@RequestHeader String token) {
+        AddressBookApp addressBookApp = contactServiceInterface.getById(token);
+        return new ResponseDTO("Contact data found",addressBookApp);
     }
 
 
-// Update person data by using id (Edit existing person data ).
-    @PutMapping("/updatebyid/{id}")
-    public ResponseEntity<ResponseDTO> updateById(@PathVariable Integer id, @Valid @RequestBody ContactDTO contactDTO) {
-        AddressBookApp addressBookApp = contactServiceInterface.updateById(id, contactDTO);
+    // Update person data by using id (Edit existing person data ).
+    @PutMapping("/updatebyid")
+    public ResponseEntity<ResponseDTO> updateById(@RequestHeader String token, @Valid @RequestBody ContactDTO contactDTO) {
+        AddressBookApp addressBookApp = contactServiceInterface.updateById(token, contactDTO);
         ResponseDTO responseDTO = new ResponseDTO("Data Update Successfully", addressBookApp);
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
 
-// Delete person data from Address Book by using id .
-    @DeleteMapping("/deletebyid/{id}")
-    public ResponseEntity<String> deleteById(@PathVariable Integer id) {
-        contactServiceInterface.deleteById(id);
-        return ResponseEntity.ok("Id " + id + " has been Successfully Deleted");
+    // Delete person data from Address Book by using id .
+    @DeleteMapping("/deletebyid")
+    public ResponseEntity<String> deleteById(@RequestHeader String token) {
+        contactServiceInterface.deleteById(token);
+        return ResponseEntity.ok("Id Successfully Deleted");
     }
 }
